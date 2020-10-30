@@ -66,7 +66,20 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        int count[] = new int[26];
+
+        for (String s: array){
+            s = s.toLowerCase();
+            for (int i = 0; i < s.length(); i++) {
+                if (Character.isLetter(s.charAt(i))) count[s.charAt(i) - 97]++;
+            }
+        }
+
+        for(int i = 0; i < 26; i++) {
+            if(count[i] == 0) return false;
+        }
+
+        return true;
     }
 
     /**
